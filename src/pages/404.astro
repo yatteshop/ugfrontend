@@ -1,0 +1,158 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import BrandLockup from "../components/ui/BrandLockup.astro";
+
+const recoveryLinks = [
+  {
+    title: "Retour à l'accueil",
+    description: "Revenir à la page principale et repartir sur une navigation claire.",
+    href: "/"
+  },
+  {
+    title: "Demande de devis",
+    description: "Accéder directement au parcours devis pour un besoin concret.",
+    href: "/devis"
+  },
+  {
+    title: "Intervention rapide",
+    description: "Basculer vers la page d'urgence si vous cherchez une action immédiate.",
+    href: "/intervention-rapide"
+  }
+] as const;
+---
+
+<MarketingLayout title="404" description="Page introuvable.">
+  <main class="page-shell not-found-page">
+    <section class="not-found-hero">
+      <div class="not-found-hero__copy">
+        <BrandLockup />
+        <p class="eyebrow">Navigation interrompue</p>
+        <h1>Cette page n'est plus à l'endroit attendu.</h1>
+        <p>
+          Le lien est peut-être ancien, incomplet ou la page a simplement été
+          déplacée. Le plus simple est de repartir sur une entrée propre.
+        </p>
+
+        <div class="actions">
+          <a class="button-link" href="/">Retour à l'accueil</a>
+          <a class="button-link button-link--secondary" href="/devis">Accéder au devis</a>
+        </div>
+      </div>
+
+      <aside class="not-found-hero__panel">
+        <span class="not-found-hero__code">404</span>
+        <p>Page introuvable</p>
+        <small>Univers Glass reste accessible via l'accueil, le devis et l'intervention rapide.</small>
+      </aside>
+    </section>
+
+    <section class="not-found-grid">
+      {
+        recoveryLinks.map((item) => (
+          <article class="page-card not-found-card">
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+            <a href={item.href}>Ouvrir la page</a>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+
+  <style>
+    .not-found-page {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .not-found-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .not-found-hero__copy,
+    .not-found-hero__panel {
+      padding: clamp(1.35rem, 2.8vw, 1.95rem);
+      border-radius: 1.55rem;
+    }
+
+    .not-found-hero__copy {
+      background:
+        radial-gradient(circle at top left, rgba(35, 111, 210, 0.15), rgba(35, 111, 210, 0) 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 250, 255, 0.96) 100%);
+      border: 1px solid rgba(203, 218, 236, 0.82);
+      box-shadow: 0 22px 50px rgba(16, 49, 93, 0.08);
+    }
+
+    .not-found-hero__copy p {
+      max-width: 38rem;
+    }
+
+    .not-found-hero__panel {
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      gap: 0.4rem;
+      background: linear-gradient(145deg, #103a73 0%, #1459ad 100%);
+      color: #ffffff;
+      box-shadow: 0 24px 54px rgba(16, 49, 93, 0.16);
+    }
+
+    .not-found-hero__code {
+      font-size: clamp(4rem, 10vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+    }
+
+    .not-found-hero__panel p,
+    .not-found-hero__panel small {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .not-found-hero__panel p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .not-found-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .not-found-card {
+      display: grid;
+      gap: 0.75rem;
+      align-content: start;
+    }
+
+    .not-found-card h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #0f2f57;
+    }
+
+    .not-found-card p {
+      margin: 0;
+    }
+
+    .not-found-card a {
+      width: fit-content;
+      color: #145fbc;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 920px) {
+      .not-found-hero,
+      .not-found-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MarketingLayout>

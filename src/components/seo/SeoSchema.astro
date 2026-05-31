@@ -1,0 +1,9 @@
+---
+interface Props {
+  payload: Record<string, unknown>;
+}
+
+const { payload } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(payload)} />

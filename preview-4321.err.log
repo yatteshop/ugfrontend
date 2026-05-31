@@ -1,0 +1,20 @@
+[31m[1m01:00:47[22m [ERROR] [@astrojs/node][39m Unhandled rejection while rendering undefined
+Error: listen EADDRINUSE: address already in use 127.0.0.1:4321
+    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at listenInCluster (node:net:2005:12)
+    at node:net:2214:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 4321,
+  loc: undefined,
+  plugin: undefined,
+  pluginCode: undefined,
+  hint: undefined
+}
+listen EADDRINUSE: address already in use 127.0.0.1:4321
+  [1mStack trace:[22m
+[2m    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at node:net:2214:7[22m

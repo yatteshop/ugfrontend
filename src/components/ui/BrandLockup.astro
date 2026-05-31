@@ -1,0 +1,59 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+  size?: "compact" | "hero";
+}
+
+const { href = "/", label = "Univers Glass", size = "compact" } = Astro.props as Props;
+
+const dimensions =
+  size === "hero"
+    ? { width: 200, height: 80 }
+    : { width: 100, height: 40 };
+---
+
+<a class={`brand-lockup brand-lockup--${size}`} href={href} aria-label={label}>
+  <img
+    class="brand-lockup__logo"
+    src="/goodlogo.png"
+    alt=""
+    aria-hidden="true"
+    width={dimensions.width}
+    height={dimensions.height}
+    loading="eager"
+    decoding="async"
+  />
+</a>
+
+<style>
+  .brand-lockup {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    gap: 0;
+    margin-bottom: clamp(1rem, 2.2vw, 1.55rem);
+    color: #145fbc;
+  }
+
+  .brand-lockup__logo {
+    display: block;
+    max-width: none;
+    flex: none;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .brand-lockup--compact .brand-lockup__logo {
+    width: 4px;
+    height: 4px;
+    object-fit: contain;
+  }
+
+  .brand-lockup--hero .brand-lockup__logo {
+    width: 200px;
+    height: 80px;
+    object-fit: fill;
+  }
+</style>

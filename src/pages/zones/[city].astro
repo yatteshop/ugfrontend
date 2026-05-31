@@ -1,0 +1,260 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MarketingIcon from "../../components/ui/MarketingIcon.astro";
+import BrandLockup from "../../components/ui/BrandLockup.astro";
+import "../../styles/univers-glass-pages.css";
+import "../../styles/home-like-pages.css";
+
+const { city = "abidjan" } = Astro.params;
+
+if (city.toLowerCase() !== "abidjan") {
+  return Astro.redirect("/zones/abidjan", 301);
+}
+
+const zoneName = "Abidjan";
+const coverageArea = "toute la Côte d'Ivoire";
+const zoneLabel = `${zoneName} et ${coverageArea}`;
+
+const zoneContext = {
+  kicker: "Zone d'intervention",
+  lead: `À ${zoneName} et dans ${coverageArea}, on garde une réponse directe, une qualification rapide et une intervention propre pour les besoins de vitrage et de sécurisation.`,
+  media: "/fonds.png",
+  alt: "Maison moderne avec large baie vitree",
+  showcaseTitle: `Une présence claire à ${zoneLabel}.`,
+  showcaseLead:
+    "Les demandes locales à Abidjan comme les interventions partout en Côte d'Ivoire sont traitées avec la même exigence visuelle et le même niveau de lisibilité que sur la home."
+} as const;
+
+const heroFeatures = [
+  {
+    icon: "clock",
+    tone: "blue",
+    title: "REPONSE",
+    subtitle: "LOCALE"
+  },
+  {
+    icon: "shield",
+    tone: "red",
+    title: "PRISE EN",
+    subtitle: "CHARGE CLAIRE"
+  },
+  {
+    icon: "people",
+    tone: "blue",
+    title: "SUIVI",
+    subtitle: "DIRECT"
+  }
+] as const;
+
+const trustItems = [
+  {
+    icon: "quality",
+    label: "CONNAISSANCE DU TERRAIN"
+  },
+  {
+    icon: "clock",
+    label: "REACTIVITE"
+  },
+  {
+    icon: "shield",
+    label: "DELAIS MAITRISES"
+  },
+  {
+    icon: "people",
+    label: "FIABILITE"
+  }
+] as const;
+
+const zoneCards = [
+  {
+    icon: "clock",
+    tone: "red",
+    title: "Repondre vite",
+    description:
+      "Pour une casse, une sécurisation ou un remplacement, on privilégie un échange direct et une suite lisible."
+  },
+  {
+    icon: "glass",
+    tone: "blue",
+    title: "Adapter la solution",
+    description:
+      "On garde un niveau de précision élevé pour choisir le vitrage et la finition les plus adaptés au contexte local."
+  },
+  {
+    icon: "people",
+    tone: "blue",
+    title: "Garder un echange clair",
+    description:
+      "Le parcours reste simple, avec des informations utiles et un suivi facile à comprendre."
+  }
+] as const;
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Qualifier",
+    description:
+      `On identifie la nature de la demande à Abidjan ou ailleurs en Côte d'Ivoire, l'adresse et le niveau d'urgence.`
+  },
+  {
+    step: "02",
+    title: "Organiser",
+    description:
+      "On prépare la réponse locale, le déplacement et les informations utiles pour avancer sans flou."
+  },
+  {
+    step: "03",
+    title: "Intervenir",
+    description:
+      "La suite se fait avec des lignes propres, un rendu clair et une fin de chantier soignée."
+  }
+] as const;
+---
+
+<BaseLayout
+  title={`Zone d'intervention ${zoneLabel} | Univers Glass`}
+  description={`Interventions de vitrerie à Abidjan et dans toute la Côte d'Ivoire.`}
+>
+  <main class="home-shell">
+    <section class="hero-card">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="hero-copy__bg" aria-hidden="true"></div>
+
+          <BrandLockup size="hero" />
+
+          <h1 class="hero-title">
+            <span>ZONE</span>
+            <span class="hero-title--accent">{zoneName.toUpperCase()}</span>
+            <span>{coverageArea.toUpperCase()}</span>
+          </h1>
+
+          <span class="hero-rule" aria-hidden="true"></span>
+
+          <p class="hero-description">{zoneContext.lead}</p>
+
+          <div class="feature-list">
+            {
+              heroFeatures.map((feature) => (
+                <div class={`feature-item feature-item--${feature.tone}`}>
+                  <span class="feature-item__icon">
+                    <MarketingIcon name={feature.icon} />
+                  </span>
+
+                  <span class="feature-item__copy">
+                    <span>{feature.title}</span>
+                    <span>{feature.subtitle}</span>
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="hero-actions">
+            <a class="hero-button hero-button--blue" href="/devis">
+              <span class="hero-button__icon">
+                <MarketingIcon name="quote" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>DEMANDER UN</small>
+                <strong>DEVIS LOCAL</strong>
+              </span>
+            </a>
+
+            <a class="hero-button hero-button--red" href="/intervention-rapide">
+              <span class="hero-button__icon">
+                <MarketingIcon name="arrow" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>VOIR L'INTERVENTION</small>
+                <strong>RAPIDE</strong>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src={zoneContext.media} alt={zoneContext.alt} loading="eager" />
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-bottom__items">
+          {
+            trustItems.map((item) => (
+              <div class="trust-item">
+                <span class="trust-item__icon">
+                  <MarketingIcon name={item.icon} />
+                </span>
+                <span class="trust-item__label">{item.label}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <a class="contact-panel" href="/contact">
+          <span class="contact-panel__icon">
+            <MarketingIcon name="mail" />
+          </span>
+
+          <span class="contact-panel__copy">
+            <strong>CONTACTEZ-NOUS</strong>
+            <small>Nous sommes à votre écoute</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase-section" data-animate="showcase">
+      <div class="showcase-heading">
+        <span class="section-kicker">{zoneContext.kicker}</span>
+        <h2>{zoneContext.showcaseTitle}</h2>
+        <p>{zoneContext.showcaseLead}</p>
+      </div>
+
+      <div class="showcase-stage">
+        <div class="showcase-grid">
+          {
+            zoneCards.map((card) => (
+              <article class="showcase-card">
+                <span class={`showcase-card__icon showcase-card__icon--${card.tone}`}>
+                  <MarketingIcon name={card.icon} />
+                </span>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-section" data-animate="signature">
+      <div class="signature-copy">
+        <span class="section-kicker">PARCOURS LOCAL</span>
+        <h2>Trois étapes pour une intervention propre à {zoneLabel}.</h2>
+        <p>
+          Le parcours reste simple du premier contact à la fin du chantier, avec des repères clairs et un échange direct.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        {
+          processSteps.map((step) => (
+            <article class="signature-card">
+              <span class="signature-card__step">{step.step}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import "../../scripts/home-animations";
+  </script>
+</BaseLayout>

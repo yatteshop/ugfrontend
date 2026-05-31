@@ -1,0 +1,123 @@
+<svg width="1920" height="1200" viewBox="0 0 1920 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="190" y1="82" x2="1648" y2="1146" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FCFF"/>
+      <stop offset="0.34" stop-color="#EDF5FC"/>
+      <stop offset="0.7" stop-color="#D9EAF7"/>
+      <stop offset="1" stop-color="#C2DCEF"/>
+    </linearGradient>
+    <radialGradient id="glowLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(402 312) rotate(28.4) scale(716 536)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.46" stop-color="#F7FBFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#F7FBFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1498 506) rotate(136.4) scale(870 804)">
+      <stop offset="0" stop-color="#A9EFFF" stop-opacity="0.78"/>
+      <stop offset="0.44" stop-color="#6BC6F3" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#D4E7F5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelFaceA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.4" stop-color="#D9F0FF" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#7FB7DA" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="panelFaceB" x1="0" y1="0" x2="0.94" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.7"/>
+      <stop offset="0.38" stop-color="#BEEBFF" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#3C7AA6" stop-opacity="0.34"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FAFDFF"/>
+      <stop offset="0.48" stop-color="#C4D4E0"/>
+      <stop offset="1" stop-color="#EDF6FC"/>
+    </linearGradient>
+    <linearGradient id="edgeLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#7FE8FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunStreak" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.38" stop-color="#FFFFFF" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#9AEAFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur36" x="-160" y="-160" width="2240" height="1520" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="blur72" x="-220" y="-220" width="2360" height="1640" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="72"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1200" fill="url(#bg)"/>
+  <rect width="1920" height="1200" fill="url(#glowLeft)"/>
+  <rect width="1920" height="1200" fill="url(#glowRight)"/>
+
+  <g opacity="0.74" filter="url(#blur72)">
+    <ellipse cx="1498" cy="954" rx="440" ry="116" fill="#A8D8F2"/>
+    <ellipse cx="1274" cy="1002" rx="282" ry="72" fill="#FFFFFF"/>
+  </g>
+
+  <g opacity="0.18">
+    <path d="M1168 94L1918 -4" stroke="#F8FCFF" stroke-width="8"/>
+    <path d="M1068 212L1918 88" stroke="#D9EBF7" stroke-width="4"/>
+    <path d="M1026 328L1918 186" stroke="#D4E5F2" stroke-width="3"/>
+    <path d="M998 442L1918 290" stroke="#D1E3F1" stroke-width="2.5"/>
+  </g>
+
+  <g opacity="0.48">
+    <path d="M1064 180L1334 1100" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M1238 118L1488 1086" stroke="#C7EFFF" stroke-width="2.5"/>
+    <path d="M1416 80L1646 1062" stroke="#FFFFFF" stroke-width="2.2"/>
+    <path d="M1604 70L1820 998" stroke="#B7ECFF" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.88">
+    <polygon points="1016,120 1312,72 1448,1068 1146,1110" fill="url(#panelFaceA)"/>
+    <polygon points="1320,74 1618,34 1712,1024 1420,1068" fill="url(#panelFaceB)"/>
+    <polygon points="1514,60 1836,20 1916,936 1612,984" fill="url(#panelFaceA)"/>
+    <polygon points="1176,228 1482,188 1570,968 1264,1012" fill="url(#panelFaceB)" opacity="0.74"/>
+  </g>
+
+  <g opacity="0.92">
+    <path d="M1016 120L1312 72" stroke="url(#metal)" stroke-width="8"/>
+    <path d="M1146 1110L1448 1068" stroke="url(#metal)" stroke-width="8"/>
+    <path d="M1016 120L1146 1110" stroke="url(#metal)" stroke-width="9"/>
+    <path d="M1312 72L1448 1068" stroke="url(#metal)" stroke-width="9"/>
+
+    <path d="M1320 74L1618 34" stroke="url(#metal)" stroke-width="7"/>
+    <path d="M1420 1068L1712 1024" stroke="url(#metal)" stroke-width="7"/>
+    <path d="M1320 74L1420 1068" stroke="url(#metal)" stroke-width="8"/>
+    <path d="M1618 34L1712 1024" stroke="url(#metal)" stroke-width="8"/>
+
+    <path d="M1514 60L1836 20" stroke="url(#metal)" stroke-width="6"/>
+    <path d="M1612 984L1916 936" stroke="url(#metal)" stroke-width="6"/>
+    <path d="M1514 60L1612 984" stroke="url(#metal)" stroke-width="7"/>
+    <path d="M1836 20L1916 936" stroke="url(#metal)" stroke-width="7"/>
+  </g>
+
+  <g opacity="0.72">
+    <path d="M1086 160L1368 112" stroke="url(#edgeLight)" stroke-width="3.4"/>
+    <path d="M1124 318L1402 278" stroke="#FFFFFF" stroke-opacity="0.72" stroke-width="2.2"/>
+    <path d="M1156 496L1430 458" stroke="#FFFFFF" stroke-opacity="0.56" stroke-width="2"/>
+    <path d="M1198 686L1460 650" stroke="#D6F6FF" stroke-opacity="0.52" stroke-width="1.8"/>
+    <path d="M1232 870L1494 838" stroke="#F8FDFF" stroke-opacity="0.48" stroke-width="1.6"/>
+
+    <path d="M1366 132L1644 94" stroke="url(#edgeLight)" stroke-width="3"/>
+    <path d="M1394 322L1672 286" stroke="#FFFFFF" stroke-opacity="0.56" stroke-width="1.8"/>
+    <path d="M1422 518L1698 482" stroke="#D5F6FF" stroke-opacity="0.46" stroke-width="1.6"/>
+    <path d="M1452 718L1728 684" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="1.4"/>
+  </g>
+
+  <g filter="url(#blur36)" opacity="0.62">
+    <path d="M1060 210C1218 244 1328 244 1466 196" stroke="url(#sunStreak)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M1290 346C1462 384 1588 384 1742 336" stroke="url(#sunStreak)" stroke-width="28" stroke-linecap="round"/>
+    <path d="M1448 504C1606 534 1724 532 1868 486" stroke="url(#sunStreak)" stroke-width="22" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.22">
+    <circle cx="1462" cy="154" r="10" fill="#FFFFFF"/>
+    <circle cx="1548" cy="232" r="12" fill="#FFFFFF"/>
+    <circle cx="1710" cy="278" r="8" fill="#9BEFFF"/>
+    <circle cx="1654" cy="442" r="10" fill="#FFFFFF"/>
+  </g>
+</svg>

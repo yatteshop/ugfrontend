@@ -1,0 +1,97 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import BrandLockup from "../../components/ui/BrandLockup.astro";
+
+const nextSteps = [
+  "Vérifier les dimensions et le type de vitrage à prévoir",
+  "Confirmer la nature de l'intervention ou de la pose",
+  "Revenir vers vous avec une suite claire et exploitable"
+];
+---
+
+<MarketingLayout title="Merci" description="Confirmation de votre demande.">
+  <main class="page-shell thank-you-page">
+    <section class="thank-you-hero">
+      <div class="thank-you-hero__copy">
+        <BrandLockup />
+        <p class="eyebrow">Confirmation reçue</p>
+        <h1>Merci, votre demande est bien prise en compte.</h1>
+        <p>
+          Le besoin est maintenant posé dans le bon cadre. La suite consiste à
+          vérifier les informations utiles et à revenir avec une réponse claire.
+        </p>
+
+        <div class="actions">
+          <a class="button-link" href="/">Retour à l'accueil</a>
+          <a class="button-link button-link--secondary" href="/devis">Faire un autre devis</a>
+        </div>
+      </div>
+
+      <aside class="thank-you-hero__panel">
+        <p class="eyebrow">Suite logique</p>
+        <ul>
+          {nextSteps.map((item) => <li>{item}</li>)}
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <style>
+    .thank-you-page {
+      display: grid;
+    }
+
+    .thank-you-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .thank-you-hero__copy,
+    .thank-you-hero__panel {
+      padding: clamp(1.35rem, 2.8vw, 1.95rem);
+      border-radius: 1.55rem;
+    }
+
+    .thank-you-hero__copy {
+      background:
+        radial-gradient(circle at top left, rgba(35, 111, 210, 0.16), rgba(35, 111, 210, 0) 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 251, 255, 0.96) 100%);
+      border: 1px solid rgba(203, 218, 236, 0.82);
+      box-shadow: 0 22px 50px rgba(16, 49, 93, 0.08);
+    }
+
+    .thank-you-hero__copy p {
+      max-width: 36rem;
+    }
+
+    .thank-you-hero__panel {
+      background: linear-gradient(145deg, #103a73 0%, #1459ad 100%);
+      box-shadow: 0 24px 54px rgba(16, 49, 93, 0.16);
+    }
+
+    .thank-you-hero__panel .eyebrow {
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 1rem;
+    }
+
+    .thank-you-hero__panel ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .thank-you-hero__panel li {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .thank-you-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MarketingLayout>

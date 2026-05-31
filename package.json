@@ -1,0 +1,20 @@
+{
+  "name": "vitrerie-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "astro": "^5.0.0",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@astrojs/node": "^9.5.5",
+    "@playwright/test": "^1.53.0"
+  }
+}

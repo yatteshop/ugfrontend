@@ -1,0 +1,5 @@
+
+> preview
+> astro preview --host 127.0.0.1 --port 4321
+
+[2m01:00:42[22m [34m[@astrojs/node][39m Enabling sessions with filesystem storage

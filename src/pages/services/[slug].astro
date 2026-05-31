@@ -1,0 +1,412 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MarketingIcon from "../../components/ui/MarketingIcon.astro";
+import BrandLockup from "../../components/ui/BrandLockup.astro";
+import "../../styles/univers-glass-pages.css";
+import "../../styles/home-like-pages.css";
+
+const { slug = "service" } = Astro.params;
+
+const serviceName = slug
+  .split("-")
+  .filter(Boolean)
+  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+  .join(" ");
+
+const serviceContext = (() => {
+  const key = slug.toLowerCase();
+
+  if (key.includes("douche")) {
+    return {
+      kicker: "Salle de bain",
+      lead:
+        "Pour une paroi de douche ou un aménagement intérieur, on cherche une ligne nette, une pose propre et une finition facile à vivre.",
+      media: "/fonds.png",
+      alt: "Maison moderne avec large baie vitree",
+      showcaseTitle: "Un service pensé pour les espaces d'eau.",
+      showcaseLead:
+        "Une prestation claire, pratique et lisible pour garder un résultat élégant au quotidien."
+    };
+  }
+
+  if (key.includes("cloison")) {
+    return {
+      kicker: "Cloison vitrée",
+      lead:
+        "Pour séparer sans fermer, avec une lecture d'espace claire, beaucoup de lumière et une sensation de volume intacte.",
+      media: "/fonds.png",
+      alt: "Maison moderne avec large baie vitree",
+      showcaseTitle: "Une cloison qui organise sans alourdir.",
+      showcaseLead:
+        "Le verre garde la lumière, dessine les espaces et donne un rendu plus professionnel."
+    };
+  }
+
+  if (key.includes("garde") || key.includes("corps")) {
+    return {
+      kicker: "Garde-corps",
+      lead:
+        "Pour sécuriser une terrasse ou un étage sans casser la transparence du lieu ni la sensation de légèreté.",
+      media: "/fonds.png",
+      alt: "Maison moderne avec large baie vitree",
+      showcaseTitle: "La sécurité sans perdre la vue.",
+      showcaseLead:
+        "Une solution discrète, lisible et durable pour les lieux qui veulent rester ouverts."
+    };
+  }
+
+  if (key.includes("escalier")) {
+    return {
+      kicker: "Escalier en verre",
+      lead:
+        "Une pièce forte visuellement, avec des lignes nettes, une circulation fluide et un rendu qui devient une signature du lieu.",
+      media: "/fonds.png",
+      alt: "Maison moderne avec large baie vitree",
+      showcaseTitle: "Un point fort architectural.",
+      showcaseLead:
+        "L'escalier devient un élément central du décor, sans perdre sa fonction technique."
+    };
+  }
+
+  if (key.includes("facade") || key.includes("vitrine")) {
+    return {
+      kicker: "Façade vitrée",
+      lead:
+        "Une entrée visuelle forte, pensée pour accueillir, protéger et mettre en valeur l'image du lieu.",
+      media: "/fonds.png",
+      alt: "Maison moderne avec large baie vitree",
+      showcaseTitle: "Une façade qui donne tout de suite le ton.",
+      showcaseLead:
+        "Grand format, lecture propre et présence premium pour un accueil plus marquant."
+    };
+  }
+
+  return {
+    kicker: "Service vitrerie",
+    lead:
+      `Un service pensé pour ${serviceName.toLowerCase()}: on relie le besoin, le support et le bon niveau de finition pour obtenir un résultat durable.`,
+    media: "/fonds.png",
+    alt: "Maison moderne avec large baie vitree",
+    showcaseTitle: "Un service construit autour de la précision.",
+    showcaseLead:
+      "Chaque projet est cadré pour rester clair, cohérent et durable dans le temps."
+  };
+})();
+
+const heroFeatures = [
+  {
+    icon: "glass",
+    tone: "blue",
+    title: "ANALYSE",
+    subtitle: "DU SUPPORT"
+  },
+  {
+    icon: "repair",
+    tone: "red",
+    title: "POSE",
+    subtitle: "MAITRISEE"
+  },
+  {
+    icon: "quality",
+    tone: "blue",
+    title: "FINITIONS",
+    subtitle: "PROPRES"
+  }
+  ,
+  {
+    icon: "shield",
+    tone: "blue",
+    eyebrow: "Fabrication",
+    title: "Verres de sécurité",
+    description:
+      "Fabrication de verres de sécurité pour les zones qui demandent plus de résistance et de protection."
+  },
+  {
+    icon: "shield",
+    tone: "red",
+    eyebrow: "Fabrication",
+    title: "Verres feuilletés",
+    description:
+      "Production de verres feuilletés pour renforcer la tenue, la sécurité et le confort acoustique."
+  },
+  {
+    icon: "thermo",
+    tone: "blue",
+    eyebrow: "Isolation",
+    title: "Double-vitrage",
+    description:
+      "Fabrication de double-vitrage pour améliorer l'isolation thermique et la performance énergétique."
+  },
+  {
+    icon: "quality",
+    tone: "blue",
+    eyebrow: "Finition",
+    title: "Bords polis",
+    description:
+      "Polissage des bords pour obtenir une finition plus nette, plus sûre et plus propre."
+  },
+  {
+    icon: "glass",
+    tone: "red",
+    eyebrow: "Sur mesure",
+    title: "Miroirs circulaires ou formes sur mesure",
+    description:
+      "Fabrication de miroirs circulaires ou de découpes aux formes souhaitées selon votre projet."
+  },
+  {
+    icon: "glass",
+    tone: "blue",
+    eyebrow: "Décor",
+    title: "Verres sablés",
+    description:
+      "Réalisation de verres sablés pour filtrer la vue, créer des effets décoratifs ou préserver l'intimité."
+  }
+] as const;
+
+const trustItems = [
+  {
+    icon: "clock",
+    label: "DELAIS CLARIFIES"
+  },
+  {
+    icon: "shield",
+    label: "CHANTIER SECURISE"
+  },
+  {
+    icon: "people",
+    label: "SUIVI DIRECT"
+  },
+  {
+    icon: "quality",
+    label: "RESULTAT DURABLE"
+  }
+] as const;
+
+const serviceCards = [
+  {
+    icon: "glass",
+    tone: "blue",
+    eyebrow: "Architecture",
+    title: "Façades vitrées et murs-rideaux",
+    description:
+      "Création, remplacement et pose de grandes surfaces vitrées pour valoriser les bâtiments et les halls d'accueil."
+  },
+  {
+    icon: "glass",
+    tone: "red",
+    eyebrow: "Commerce",
+    title: "Vitrines commerciales",
+    description:
+      "Conception de vitrines, devantures et baies vitrées pour les commerces, showrooms et espaces de réception."
+  },
+  {
+    icon: "people",
+    tone: "blue",
+    eyebrow: "Bureaux",
+    title: "Cloisons de bureaux vitrées",
+    description:
+      "Séparation élégante des espaces de travail tout en gardant la lumière, la transparence et le confort visuel."
+  },
+  {
+    icon: "thermo",
+    tone: "blue",
+    eyebrow: "Confort",
+    title: "Vitrage isolant et acoustique",
+    description:
+      "Solutions de double vitrage et vitrages techniques pour améliorer l'isolation thermique et phonique."
+  },
+  {
+    icon: "shield",
+    tone: "red",
+    eyebrow: "Sécurité",
+    title: "Garde-corps et protections vitrées",
+    description:
+      "Installation de garde-corps, rampes et protections vitrées pour sécuriser les circulations et les hauteurs."
+  },
+  {
+    icon: "repair",
+    tone: "blue",
+    eyebrow: "Urgence",
+    title: "Remplacement après casse",
+    description:
+      "Mise en sécurité rapide, remplacement du vitrage et reprise des finitions pour retrouver un site propre."
+  }
+] as const;
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Evaluer",
+    description:
+      "On commence par comprendre le support, les contraintes et l'attente du projet."
+  },
+  {
+    step: "02",
+    title: "Preparer",
+    description:
+      "On ajuste le vitrage, les dimensions et les fixations pour un rendu net."
+  },
+  {
+    step: "03",
+    title: "Poser",
+    description:
+      "La pose se fait avec un alignement propre et une finition soignee."
+  }
+] as const;
+---
+
+<BaseLayout
+  title={`${serviceName} | Univers Glass`}
+  description={`Solution vitrerie ${serviceName} sur mesure.`}
+>
+  <main class="home-shell">
+    <section class="hero-card">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="hero-copy__bg" aria-hidden="true"></div>
+
+          <BrandLockup size="hero" />
+
+          <h1 class="hero-title">
+            <span>SERVICE</span>
+            <span class="hero-title--accent">{serviceName.toUpperCase()}</span>
+            <span>SUR MESURE</span>
+          </h1>
+
+          <span class="hero-rule" aria-hidden="true"></span>
+
+          <p class="hero-description">{serviceContext.lead}</p>
+
+          <div class="feature-list">
+            {
+              heroFeatures.map((feature) => (
+                <div class={`feature-item feature-item--${feature.tone}`}>
+                  <span class="feature-item__icon">
+                    <MarketingIcon name={feature.icon} />
+                  </span>
+
+                  <span class="feature-item__copy">
+                    <span>{feature.title}</span>
+                    <span>{feature.subtitle}</span>
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="hero-actions">
+            <a class="hero-button hero-button--blue" href="/devis">
+              <span class="hero-button__icon">
+                <MarketingIcon name="quote" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>DEMANDER UN</small>
+                <strong>DEVIS CLAIR</strong>
+              </span>
+            </a>
+
+            <a class="hero-button hero-button--red" href="/intervention-rapide">
+              <span class="hero-button__icon">
+                <MarketingIcon name="arrow" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>VOIR L'INTERVENTION</small>
+                <strong>RAPIDE</strong>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src={serviceContext.media} alt={serviceContext.alt} loading="eager" />
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-bottom__items">
+          {
+            trustItems.map((item) => (
+              <div class="trust-item">
+                <span class="trust-item__icon">
+                  <MarketingIcon name={item.icon} />
+                </span>
+                <span class="trust-item__label">{item.label}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <a class="contact-panel" href="/contact">
+          <span class="contact-panel__icon">
+            <MarketingIcon name="mail" />
+          </span>
+
+          <span class="contact-panel__copy">
+            <strong>CONTACTEZ-NOUS</strong>
+            <small>Nous sommes à votre écoute</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase-section" data-animate="showcase">
+      <div class="showcase-heading">
+        <span class="section-kicker">SERVICES INDUSTRIELS</span>
+        <h2>Les services qu'une vitrerie industrielle peut fournir.</h2>
+        <p>
+          Façades vitrées, vitrines commerciales, cloisons de bureaux, vitrage
+          isolant, garde-corps, protections vitrées et remplacement après casse:
+          voici les principales prestations que nous pouvons prendre en charge.
+          Nous assurons aussi la fabrication sur mesure de verres de sécurité,
+          verres feuilletés, double-vitrage, bords polis, miroirs circulaires ou
+          de forme souhaitée, ainsi que des verres sablés.
+        </p>
+      </div>
+
+      <div class="showcase-stage">
+        <div class="showcase-grid">
+          {
+            serviceCards.map((card) => (
+              <article class="showcase-card">
+                <span class={`showcase-card__icon showcase-card__icon--${card.tone}`}>
+                  <MarketingIcon name={card.icon} />
+                </span>
+                <span class="showcase-card__eyebrow">{card.eyebrow}</span>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-section" data-animate="signature">
+      <div class="signature-copy">
+        <span class="section-kicker">METHODE</span>
+        <h2>Une progression simple pour garder un rendu propre.</h2>
+        <p>
+          On garde la lecture du projet claire, du premier échange jusqu'à la pose finale.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        {
+          processSteps.map((step) => (
+            <article class="signature-card">
+              <span class="signature-card__step">{step.step}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import "../../scripts/home-animations";
+  </script>
+</BaseLayout>

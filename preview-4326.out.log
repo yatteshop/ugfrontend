@@ -1,0 +1,6 @@
+
+> preview
+> astro preview --host 127.0.0.1 --port 4326
+
+[2m15:23:35[22m [34m[@astrojs/node][39m Enabling sessions with filesystem storage
+[2m15:23:36[22m [34m[@astrojs/node][39m Server listening on http://127.0.0.1:4326

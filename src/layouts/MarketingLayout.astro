@@ -1,0 +1,22 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="marketing-layout">
+    <div class="marketing-layout__glow marketing-layout__glow--blue" aria-hidden="true"></div>
+    <div class="marketing-layout__glow marketing-layout__glow--red" aria-hidden="true"></div>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</BaseLayout>

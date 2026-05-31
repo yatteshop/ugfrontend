@@ -1,0 +1,1425 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MarketingIcon from "../components/ui/MarketingIcon.astro";
+import "@splidejs/splide/css/core";
+
+const features = [
+  {
+    icon: "glass",
+    tone: "blue",
+    title: "VITRAGE",
+    subtitle: "SUR MESURE"
+  },
+  {
+    icon: "repair",
+    tone: "red",
+    title: "RÉPARATION",
+    subtitle: "RAPIDE"
+  },
+  {
+    icon: "thermo",
+    tone: "blue",
+    title: "ISOLATION",
+    subtitle: "THERMIQUE"
+  }
+] as const;
+
+const trustItems = [
+  {
+    icon: "quality",
+    label: "TRAVAIL DE QUALITÉ"
+  },
+  {
+    icon: "clock",
+    label: "DISPONIBLE 24H/24"
+  },
+  {
+    icon: "shield",
+    label: "SÉCURITÉ GARANTIE"
+  },
+  {
+    icon: "people",
+    label: "SATISFACTION CLIENT"
+  }
+] as const;
+
+const showcaseSlides = [
+  {
+    eyebrow: "Façade vitrée",
+    title: "Une entrée vitrée qui impose tout de suite le niveau.",
+    description:
+      "Grandes surfaces, profils sombres et reflets nets pour donner à la façade une présence très premium.",
+    image: "/carrousel/facade-vitree.jpeg",
+    alt: "Façade contemporaine entièrement vitrée avec entrée centrale",
+    tags: ["Façade", "Grand format", "Finition premium"]
+  },
+  {
+    eyebrow: "Cloison de bureau",
+    title: "Des séparations en verre qui laissent circuler la lumière.",
+    description:
+      "Une ligne très propre, une sensation d'espace intacte et une lecture plus élégante des volumes intérieurs.",
+    image: "/carrousel/cloison-bureau.jpeg",
+    alt: "Bureau fermé par une grande cloison vitrée coulissante",
+    tags: ["Cloison", "Lumière", "Minimal"]
+  },
+  {
+    eyebrow: "Paroi de douche",
+    title: "Une salle d'eau plus nette, plus sobre, plus graphique.",
+    description:
+      "Verre, ferrures noires et pose précise pour faire monter la finition sans alourdir l'espace.",
+    image: "/carrousel/douche.jpeg",
+    alt: "Douche moderne fermée par une paroi vitrée encadrée de noir",
+    tags: ["Salle de bain", "Pose précise", "Design"]
+  },
+  {
+    eyebrow: "Garde-corps vitrés",
+    title: "De la sécurité sans casser la vue ni la légèreté.",
+    description:
+      "Des lignes discrètes, une transparence continue et un rendu très propre pour les terrasses et les étages.",
+    image: "/carrousel/garde-corps-vitre.jpeg",
+    alt: "Terrasse contemporaine avec garde-corps entièrement vitré",
+    tags: ["Terrasse", "Sécurité", "Transparence"]
+  },
+  {
+    eyebrow: "Escalier en verre",
+    title: "Une pièce signature qui capte tout de suite le regard.",
+    description:
+      "Marches, garde-corps et baies travaillent ensemble pour donner une impression d'espace très spectaculaire.",
+    image: "/carrousel/escalier-verre.jpeg",
+    alt: "Intérieur lumineux avec escalier et garde-corps en verre",
+    tags: ["Escalier", "Effet waouh", "Architecture"]
+  }
+] as const;
+
+const serviceFocus = [
+  {
+    icon: "glass",
+    title: "Vitrage sur mesure",
+    description:
+      "Découpe, façonnage et pose adaptés aux dimensions, aux usages et aux contraintes de chaque ouverture."
+  },
+  {
+    icon: "thermo",
+    title: "Isolation performante",
+    description:
+      "Double vitrage, optimisation thermique et réduction des déperditions pour gagner en confort au quotidien."
+  },
+  {
+    icon: "shield",
+    title: "Sécurisation rapide",
+    description:
+      "Remplacement après bris, mise en sécurité et finitions fiables pour protéger les lieux sans attendre."
+  }
+] as const;
+---
+
+<BaseLayout
+  title="UNIVERS GLASS"
+  description="UNIVERS GLASS, la transparence au service de vos projets."
+>
+  <main class="home-shell">
+    <section class="hero-card">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="hero-copy__bg" aria-hidden="true"></div>
+
+          <a class="brand-lockup" href="/" aria-label="Univers Glass">
+            <img
+              class="brand-lockup__logo"
+              src="/goodlogo.png"
+              alt=""
+              aria-hidden="true"
+              width="200"
+              height="80"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+
+          <h1 class="hero-title">
+            <span>LA TRANSPARENCE</span>
+            <span class="hero-title--accent">AU SERVICE DE</span>
+            <span>VOS PROJETS</span>
+          </h1>
+
+          <span class="hero-rule" aria-hidden="true"></span>
+
+          <p class="hero-description">
+            Spécialiste en vitrerie moderne : installation, réparation et
+            solutions sur mesure.
+           
+          </p>
+          <p class="hero-description">
+             Zone Industrielle Yopougon - 11 BP 1107 Abidjan 11,<br />
+             Telephone : 07-11-00-00-07
+          </p>
+
+
+          <div class="feature-list">
+            {
+              features.map((feature) => (
+                <div class={`feature-item feature-item--${feature.tone}`}>
+                  <span class="feature-item__icon">
+                    <MarketingIcon name={feature.icon} />
+                  </span>
+
+                  <span class="feature-item__copy">
+                    <span>{feature.title}</span>
+                    <span>{feature.subtitle}</span>
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="hero-actions">
+            <a class="hero-button hero-button--blue" href="/devis">
+              <span class="hero-button__icon">
+                <MarketingIcon name="quote" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>DEMANDEZ VOTRE</small>
+                <strong>DEVIS GRATUIT</strong>
+              </span>
+            </a>
+
+            <a class="hero-button hero-button--red" href="/intervention-rapide">
+              <span class="hero-button__icon">
+                <MarketingIcon name="arrow" />
+              </span>
+
+              <span class="hero-button__copy">
+                <small>INTERVENTION RAPIDE</small>
+                <strong>ET PROFESSIONNELLE</strong>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img
+            src="/fonds.png"
+            alt="Maison moderne avec large baie vitree"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-bottom__items">
+          {
+            trustItems.map((item) => (
+              <div class="trust-item">
+                <span class="trust-item__icon">
+                  <MarketingIcon name={item.icon} />
+                </span>
+                <span class="trust-item__label">{item.label}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <a class="contact-panel" href="/contact">
+          <span class="contact-panel__icon">
+            <MarketingIcon name="mail" />
+          </span>
+
+          <span class="contact-panel__copy">
+            <strong>CONTACTEZ-NOUS</strong>
+            <small>Nous sommes à votre écoute</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase-section" data-animate="showcase">
+      <div class="showcase-heading">
+        <span class="section-kicker">SIGNATURE VISUELLE</span>
+        <h2>Des réalisations qui respirent la lumière.</h2>
+      </div>
+
+      <div class="showcase-stage">
+        <div
+          class="splide showcase-splide js-showcase-slider"
+          aria-label="Réalisations vitrées mises en avant"
+        >
+          <div class="splide__track">
+            <ul class="splide__list">
+              {
+                showcaseSlides.map((slide) => (
+                  <li class="splide__slide">
+                    <article
+                      class={`showcase-slide${slide.image === "/carrousel/douche.jpeg" ? " showcase-slide--paroi-douche" : ""}`}
+                      data-lift-card
+                    >
+                      <div class="showcase-slide__media">
+                        <img src={slide.image} alt={slide.alt} loading="lazy" />
+                      </div>
+
+                      <div class="showcase-slide__content">
+                        <span class="showcase-slide__eyebrow">
+                          {slide.eyebrow}
+                        </span>
+                        <h3>{slide.title}</h3>
+                        <p>{slide.description}</p>
+
+                        <div class="showcase-slide__tags">
+                          {slide.tags.map((tag) => <span>{tag}</span>)}
+                        </div>
+                      </div>
+                    </article>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="splide__arrows showcase-splide__arrows">
+            <button
+              class="splide__arrow splide__arrow--prev"
+              type="button"
+              aria-label="Slide précédente"
+            >
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <path
+                  d="m15.5 8.5 11 11-11 11"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3.4"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              class="splide__arrow splide__arrow--next"
+              type="button"
+              aria-label="Slide suivante"
+            >
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <path
+                  d="m15.5 8.5 11 11-11 11"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3.4"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-section" data-animate="signature">
+      <div class="signature-copy">
+        <span class="section-kicker">EXPERTISE VITRERIE</span>
+        <h2>Des solutions techniques pensées pour une vitrerie professionnelle.</h2>
+        <p>
+          Vitrage isolant, remplacement après casse, pose sur mesure et mise en
+          sécurité : chaque intervention vise la précision, la durabilité et la
+          qualité de finition.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        {
+          serviceFocus.map((item) => (
+            <article class="signature-card" data-lift-card>
+              <span class="signature-card__icon">
+                <MarketingIcon name={item.icon} />
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/home-animations";
+  </script>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+    :global(body) {
+      background:
+        radial-gradient(circle at top left, rgba(81, 152, 228, 0.22), transparent 30%),
+        linear-gradient(180deg, #dce8f4 0%, #eef4fb 100%);
+    }
+
+    .home-shell {
+      width: min(100%, 1440px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding:
+        clamp(0.5rem, 1.1vw, 1rem)
+        clamp(0.5rem, 1.1vw, 1rem)
+        clamp(0.55rem, 1vw, 0.85rem);
+      display: grid;
+      align-content: start;
+      gap: clamp(1rem, 2vw, 1.65rem);
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    }
+
+    .hero-card {
+      width: 100%;
+      min-height: calc(100vh - clamp(0.5rem, 1.1vw, 1rem));
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      background: #ffffff;
+      box-shadow: 0 24px 70px rgba(16, 49, 93, 0.14);
+      overflow: hidden;
+    }
+
+    .hero-main {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      min-height: min(72vh, 640px);
+      background:
+        radial-gradient(circle at 10% 18%, rgba(82, 146, 221, 0.2), rgba(82, 146, 221, 0) 28%),
+        linear-gradient(90deg, #f6fbff 0%, #f8fbff 55%, #e1edf8 55%, #d5e5f3 100%);
+    }
+
+    .hero-copy,
+    .hero-media {
+      position: relative;
+      min-width: 0;
+    }
+
+    .hero-copy {
+      z-index: 3;
+      padding:
+        clamp(1.35rem, 2.4vw, 2.1rem)
+        clamp(1.45rem, 2.8vw, 2.2rem)
+        clamp(1.2rem, 2vw, 1.7rem)
+        clamp(1.5rem, 3vw, 2.3rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .hero-copy__bg {
+      position: absolute;
+      inset: 0 -11rem 0 0;
+      background:
+        linear-gradient(90deg, rgba(248, 252, 255, 0.98) 0%, rgba(250, 252, 255, 0.98) 78%, rgba(241, 247, 252, 0.92) 100%);
+      clip-path: polygon(0 0, 78% 0, 100% 50%, 78% 100%, 0 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .brand-lockup {
+      width: fit-content;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: clamp(1rem, 2.2vw, 1.55rem);
+      color: #145fbc;
+    }
+
+    .brand-lockup svg {
+      width: clamp(2rem, 2.2vw, 2.5rem);
+      height: auto;
+      flex: none;
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 0.15rem;
+      line-height: 1;
+    }
+
+    .brand-copy strong {
+      color: #185eb4;
+      font-size: clamp(1.45rem, 1.9vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-copy span {
+      max-width: 18rem;
+      color: #172847;
+      font-size: clamp(0.6rem, 0.68vw, 0.76rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin-bottom: 0;
+      color: #155fbc;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 0.94;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title--accent {
+      color: #e31b23;
+    }
+
+    .hero-rule {
+      width: 3.6rem;
+      height: 0.2rem;
+      margin: 0.95rem 0 0.8rem;
+      border-radius: 999px;
+      background: #e31b23;
+    }
+
+    .hero-description {
+      max-width: 27rem;
+      margin-bottom: 1rem;
+      color: #1b3054;
+      font-size: clamp(0.88rem, 0.95vw, 1rem);
+      line-height: 1.38;
+      font-weight: 500;
+    }
+
+    .hero-location-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-left: 0.35rem;
+      color: inherit;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-location-phone .marketing-icon {
+      width: 0.72rem;
+      height: 0.72rem;
+      flex: none;
+      color: #e31b23;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 7.8rem;
+    }
+
+    .feature-item__icon {
+      width: 2.45rem;
+      height: 2.45rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(14, 58, 119, 0.14);
+    }
+
+    .feature-item--blue .feature-item__icon {
+      background: #165fbc;
+    }
+
+    .feature-item--red .feature-item__icon {
+      background: #e31b23;
+    }
+
+    .feature-item__copy {
+      display: grid;
+      gap: 0.08rem;
+      font-size: 0.64rem;
+      line-height: 1.06;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .feature-item--blue .feature-item__copy {
+      color: #1459ad;
+    }
+
+    .feature-item--red .feature-item__copy {
+      color: #d81b22;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      max-width: 32rem;
+    }
+
+    .hero-button {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+      min-height: 3.85rem;
+      padding: 0.5rem 0.95rem 0.5rem 0.62rem;
+      border-radius: 1rem;
+      color: #ffffff;
+      box-shadow: 0 14px 22px rgba(16, 49, 93, 0.18);
+    }
+
+    .hero-button--blue {
+      background: linear-gradient(135deg, #236fd2 0%, #155fbc 100%);
+      --button-accent: #165fbc;
+    }
+
+    .hero-button--red {
+      background: linear-gradient(135deg, #ef2129 0%, #d81720 100%);
+      --button-accent: #e31b23;
+    }
+
+    .hero-button__icon {
+      width: 2.35rem;
+      height: 2.35rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--button-accent);
+      box-shadow: inset 0 0 0 1px rgba(15, 45, 92, 0.08);
+    }
+
+    .hero-button__copy {
+      display: grid;
+      gap: 0.12rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .hero-button__copy small {
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-button__copy strong {
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-media {
+      z-index: 1;
+      overflow: hidden;
+      min-height: 100%;
+      background: #d8e7f5;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      left: -3.2rem;
+      bottom: 0;
+      width: 13rem;
+      height: 7rem;
+      background: rgba(255, 255, 255, 0.96);
+      clip-path: polygon(100% 100%, 0% 100%, 100% 100%);
+      pointer-events: none;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 68% center;
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: stretch;
+      background: #11468d;
+      color: #ffffff;
+    }
+
+    .hero-bottom__items {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .trust-item {
+      min-height: 3.95rem;
+      padding: 0.55rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .trust-item__icon {
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      flex: none;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      color: #ffffff;
+    }
+
+    .trust-item__label {
+      font-size: 0.65rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .contact-panel {
+      position: relative;
+      min-width: 22.5rem;
+      margin-top: -0.65rem;
+      padding: 0.8rem 1.35rem 0.8rem 0.95rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.7rem;
+      background: linear-gradient(135deg, #ef232b 0%, #de1820 100%);
+      color: #ffffff;
+      clip-path: polygon(2rem 0, 100% 0, 100% 100%, 0 100%, 0 58%);
+      box-shadow: 0 14px 22px rgba(132, 15, 23, 0.24);
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      left: -1.4rem;
+      bottom: 0;
+      width: 2rem;
+      height: 100%;
+      background: #11468d;
+      clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    }
+
+    .contact-panel__icon {
+      position: relative;
+      z-index: 1;
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #de1820;
+      box-shadow: 0 10px 18px rgba(95, 9, 14, 0.18);
+    }
+
+    .contact-panel__copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.16rem;
+      text-transform: uppercase;
+    }
+
+    .contact-panel__copy strong {
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-panel__copy small {
+      font-size: 0.74rem;
+      line-height: 1.18;
+      font-weight: 500;
+      text-transform: none;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.55rem;
+      color: #165fbc;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 2.6rem;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+
+    .showcase-section,
+    .signature-section {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2rem;
+      box-shadow: 0 24px 70px rgba(16, 49, 93, 0.12);
+    }
+
+    .showcase-section {
+      padding:
+        clamp(1.4rem, 3vw, 2.4rem)
+        clamp(1.4rem, 3vw, 2.4rem)
+        clamp(0.75rem, 1.6vw, 1.05rem);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(35, 111, 210, 0.16), rgba(35, 111, 210, 0) 28%),
+        linear-gradient(135deg, #f8fbff 0%, #eef5fb 52%, #e2edf7 100%);
+      border: 1px solid rgba(21, 95, 188, 0.08);
+    }
+
+    .signature-section {
+      padding: clamp(1.35rem, 2.8vw, 2.2rem);
+      background:
+        radial-gradient(circle at top right, rgba(227, 27, 35, 0.12), rgba(227, 27, 35, 0) 28%),
+        linear-gradient(135deg, #103a73 0%, #11468d 54%, #1e5fb3 100%);
+      color: #ffffff;
+    }
+
+    .showcase-heading,
+    .signature-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .showcase-heading {
+      max-width: 100%;
+    }
+
+    .signature-copy {
+      max-width: 40rem;
+    }
+
+    .showcase-heading h2,
+    .signature-copy h2 {
+      margin: 0.8rem 0 0.75rem;
+      font-size: clamp(1.7rem, 2.5vw, 2.55rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .showcase-heading h2 {
+      color: #123b72;
+      white-space: nowrap;
+    }
+
+    .signature-copy h2 {
+      color: #ffffff;
+    }
+
+    .showcase-heading p,
+    .signature-copy p {
+      margin: 0;
+      font-size: clamp(0.95rem, 1vw, 1.05rem);
+      line-height: 1.65;
+    }
+
+    .showcase-heading p {
+      color: #27456e;
+    }
+
+    .signature-copy p {
+      max-width: 34rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .showcase-stage {
+      position: relative;
+      width: min(100%, 74rem);
+      margin: clamp(1.2rem, 2.2vw, 1.8rem) auto 0;
+    }
+
+    .showcase-splide {
+      position: relative;
+      z-index: 2;
+      visibility: visible;
+      display: grid;
+      gap: 0;
+    }
+
+    .showcase-splide :global(.splide__track) {
+      overflow: hidden;
+    }
+
+    .showcase-splide :global(.splide__list) {
+      align-items: stretch;
+    }
+
+    .showcase-splide :global(.splide__slide) {
+      padding: 0.35rem 0 0.12rem;
+      opacity: 1;
+    }
+
+    .showcase-slide {
+      min-height: clamp(22.5rem, 42vw, 28.5rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(16.75rem, 0.72fr);
+      align-items: stretch;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 20px 48px rgba(18, 59, 114, 0.18);
+    }
+
+    .showcase-slide__media {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      min-height: clamp(15.75rem, 22vw, 20.5rem);
+      height: auto;
+      margin-right: -2px;
+      overflow: hidden;
+      background: #dbe8f4;
+      z-index: 1;
+    }
+
+    .showcase-slide__media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.04);
+    }
+
+    .showcase-slide--paroi-douche .showcase-slide__media {
+      background: linear-gradient(180deg, #e8ddd2 0%, #d8c9bb 100%);
+    }
+
+    .showcase-slide--paroi-douche .showcase-slide__media img {
+      object-fit: contain;
+      object-position: center;
+      transform: none;
+    }
+
+    .showcase-slide__content {
+      width: 100%;
+      min-width: 0;
+      justify-self: stretch;
+      padding: clamp(0.95rem, 1.9vw, 1.3rem) clamp(1rem, 2vw, 1.35rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.58rem;
+      background: rgba(255, 255, 255, 0.985);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .showcase-slide__eyebrow {
+      color: #0f4b92;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .showcase-slide__content h3 {
+      margin: 0;
+      max-width: 13.75rem;
+      margin-inline: auto;
+      color: #08284d;
+      font-size: clamp(1.14rem, 1.65vw, 1.72rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .showcase-slide__content p {
+      margin: 0;
+      max-width: 15rem;
+      margin-inline: auto;
+      color: #152f4d;
+      font-size: clamp(0.88rem, 0.95vw, 0.98rem);
+      font-weight: 650;
+      line-height: 1.52;
+    }
+
+    .showcase-slide__tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      max-width: 14rem;
+      margin-inline: auto;
+    }
+
+    .showcase-slide__tags span {
+      padding: 0.44rem 0.62rem;
+      border-radius: 999px;
+      background: rgba(10, 40, 77, 0.08);
+      color: #0c3568;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .showcase-splide :global(.splide__arrows) {
+      position: static;
+      display: flex;
+      gap: 0.35rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.48rem;
+    }
+
+    .showcase-splide :global(.splide__arrow) {
+      position: static;
+      transform: none;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      color: #103a73;
+      box-shadow: 0 10px 18px rgba(16, 58, 115, 0.14);
+      opacity: 1;
+    }
+
+    .showcase-splide :global(.splide__arrow:hover) {
+      background: #ffffff;
+    }
+
+    .showcase-splide :global(.splide__arrow svg) {
+      fill: currentColor;
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    .showcase-splide :global(.splide__arrow--prev svg) {
+      transform: rotate(180deg);
+    }
+
+    .signature-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: clamp(1rem, 2vw, 1.6rem);
+      align-items: start;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .signature-card {
+      min-height: 100%;
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 1.4rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 30px rgba(7, 28, 57, 0.14);
+    }
+
+    .signature-card__icon {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+
+    .signature-card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .signature-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .signature-card,
+    .hero-button,
+    .contact-panel {
+      will-change: transform;
+    }
+
+    .marketing-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    @media (max-width: 1180px) {
+      .hero-main {
+        grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+      }
+
+      .signature-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-bottom__items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(-n + 2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .home-shell {
+        padding: 0 0 0.65rem;
+      }
+
+      .hero-card {
+        min-height: 100vh;
+      }
+
+      .hero-main {
+        display: block;
+        min-height: 0;
+      }
+
+      .showcase-slide {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-slide__media {
+        aspect-ratio: 3 / 2;
+        min-height: 0;
+        margin-right: 0;
+      }
+
+      .showcase-slide__content {
+        width: 100%;
+      }
+
+      .signature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: clamp(35rem, calc(100vh - 8rem), 44rem);
+        padding: 1.6rem 1.1rem 1.4rem 1.2rem;
+      }
+
+      .hero-copy__bg {
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(248, 252, 255, 0.99) 0%, rgba(250, 252, 255, 0.97) 38%, rgba(245, 250, 255, 0.9) 52%, rgba(241, 247, 252, 0.58) 68%, rgba(241, 247, 252, 0) 100%);
+        clip-path: none;
+      }
+
+      .hero-title span {
+        white-space: normal;
+      }
+
+      .hero-title {
+        max-width: min(18rem, 74vw);
+      }
+
+      .hero-description {
+        max-width: min(16rem, 68vw);
+      }
+
+      .feature-list {
+        max-width: min(17rem, 74vw);
+      }
+
+      .hero-actions {
+        max-width: min(18rem, 76vw);
+      }
+
+      .hero-media {
+        position: absolute;
+        inset: 0 0 0 auto;
+        width: min(58vw, 30rem);
+        min-height: 100%;
+      }
+
+      .hero-media::before {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 22%, rgba(255, 255, 255, 0) 36%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+      }
+
+      .hero-media img {
+        object-position: 74% center;
+      }
+
+      .hero-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-bottom__items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-panel {
+        min-width: 0;
+        width: min(100%, 24rem);
+        justify-self: end;
+        margin-top: -0.55rem;
+        clip-path: polygon(1.6rem 0, 100% 0, 100% 100%, 0 100%, 0 62%);
+        box-shadow: 0 14px 22px rgba(132, 15, 23, 0.24);
+      }
+
+      .contact-panel::after {
+        left: -1.15rem;
+        width: 1.65rem;
+        display: block;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero-copy {
+        min-height: clamp(32rem, calc(100vh - 8rem), 39rem);
+        padding-right: 1rem;
+      }
+
+      .showcase-section,
+      .signature-section {
+        border-radius: 1.5rem;
+      }
+
+      .showcase-heading h2 {
+        white-space: normal;
+      }
+
+      .hero-copy__bg {
+        background:
+          linear-gradient(90deg, rgba(248, 252, 255, 0.99) 0%, rgba(250, 252, 255, 0.96) 34%, rgba(245, 250, 255, 0.84) 52%, rgba(241, 247, 252, 0.42) 72%, rgba(241, 247, 252, 0) 100%);
+      }
+
+      .brand-copy strong {
+        font-size: 1.55rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.35rem, 11vw, 3.8rem);
+        max-width: min(15rem, 78vw);
+      }
+
+      .hero-description {
+        max-width: min(13rem, 72vw);
+      }
+
+      .feature-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: min(13.5rem, 74vw);
+      }
+
+      .hero-actions {
+        grid-template-columns: 1fr;
+        max-width: min(14.75rem, 76vw);
+      }
+
+      .hero-button__copy strong {
+        font-size: 1.05rem;
+      }
+
+      .hero-media {
+        width: 56vw;
+      }
+
+      .trust-item {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(even) {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(-n + 2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-copy {
+        min-height: 31.5rem;
+        padding: 1.35rem 0.95rem 1.25rem 1rem;
+      }
+
+      .home-shell {
+        gap: 0.8rem;
+      }
+
+      .hero-copy__bg {
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(248, 252, 255, 0.99) 0%, rgba(250, 252, 255, 0.97) 30%, rgba(245, 250, 255, 0.84) 48%, rgba(241, 247, 252, 0.4) 68%, rgba(241, 247, 252, 0) 100%);
+      }
+
+      .brand-lockup {
+        gap: 0.55rem;
+      }
+
+      .brand-copy strong {
+        font-size: 1.14rem;
+      }
+
+      .brand-copy span {
+        max-width: 10.75rem;
+        font-size: 0.49rem;
+      }
+
+      .hero-title {
+        max-width: min(12rem, 80vw);
+        font-size: clamp(1.95rem, 10vw, 2.65rem);
+      }
+
+      .hero-rule {
+        margin: 0.8rem 0 0.65rem;
+      }
+
+      .hero-description {
+        max-width: min(10.75rem, 72vw);
+        margin-bottom: 0.8rem;
+        font-size: 0.76rem;
+      }
+
+      .feature-list {
+        max-width: min(10.75rem, 72vw);
+        gap: 0.5rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .feature-item {
+        gap: 0.38rem;
+      }
+
+      .feature-item__icon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .feature-item__copy {
+        font-size: 0.53rem;
+      }
+
+      .hero-actions {
+        max-width: min(12.5rem, 74vw);
+        gap: 0.55rem;
+      }
+
+      .hero-button {
+        min-height: 3.2rem;
+        gap: 0.5rem;
+        padding: 0.44rem 0.7rem 0.44rem 0.56rem;
+      }
+
+      .hero-button__icon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .hero-button__copy small {
+        font-size: 0.5rem;
+      }
+
+      .hero-button__copy strong {
+        font-size: 0.83rem;
+      }
+
+      .hero-media {
+        width: 57vw;
+      }
+
+      .hero-media::after {
+        left: -2rem;
+        width: 6.5rem;
+        height: 4rem;
+      }
+
+      .hero-bottom__items {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item:nth-child(-n + 2) {
+        border-bottom: none;
+      }
+
+      .trust-item:nth-child(-n + 3) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-panel {
+        width: 100%;
+        margin-top: 0;
+        clip-path: polygon(1.2rem 0, 100% 0, 100% 100%, 0 100%, 0 56%);
+      }
+
+      .contact-panel::after {
+        display: none;
+      }
+
+      .section-kicker {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+      }
+
+      .section-kicker::before {
+        width: 2rem;
+      }
+
+      .showcase-heading h2,
+      .signature-copy h2 {
+        font-size: clamp(1.6rem, 9vw, 2.2rem);
+      }
+
+      .showcase-heading p,
+      .signature-copy p,
+      .showcase-slide__content p,
+      .signature-card p {
+        font-size: 0.88rem;
+      }
+
+      .showcase-slide__content {
+        gap: 0.8rem;
+      }
+
+      .showcase-splide :global(.splide__arrow) {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  </style>
+</BaseLayout>

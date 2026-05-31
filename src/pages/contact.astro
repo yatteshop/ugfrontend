@@ -1,0 +1,428 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MarketingIcon from "../components/ui/MarketingIcon.astro";
+import BrandLockup from "../components/ui/BrandLockup.astro";
+import "../styles/univers-glass-pages.css";
+
+const phoneDisplay = "07 68 74 30 02";
+const phoneLink = "tel:0768743002";
+const whatsappLink = "https://wa.me/33768743002";
+const emailAddress = "nchodavyphilippe@gmail.com";
+const emailLink = `mailto:${emailAddress}`;
+
+const contactTrustItems = [
+  {
+    icon: "clock",
+    label: "RÉPONSE RAPIDE"
+  },
+  {
+    icon: "people",
+    label: "CONTACT DIRECT"
+  },
+  {
+    icon: "shield",
+    label: "PRISE EN CHARGE CLAIRE"
+  },
+  {
+    icon: "quality",
+    label: "ACCOMPAGNEMENT SÉRIEUX"
+  }
+] as const;
+
+const contactFlow = [
+  {
+    step: "01",
+    title: "Appelez-nous",
+    description:
+      "Pour un besoin immédiat, vous pouvez nous joindre directement par téléphone."
+  },
+  {
+    step: "02",
+    title: "Ecrivez sur WhatsApp",
+    description:
+      "Partagez rapidement votre besoin, vos dimensions ou une première photo sur WhatsApp."
+  },
+  {
+    step: "03",
+    title: "Envoyez un email",
+    description:
+      "Pour une demande plus détaillée, vous pouvez également nous écrire par email."
+  }
+] as const;
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contactez Univers Glass par téléphone, WhatsApp ou email."
+>
+  <main class="home-shell">
+    <section class="hero-card">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="hero-copy__bg" aria-hidden="true"></div>
+
+          <BrandLockup size="hero" />
+
+          <h1 class="hero-title">
+            <span>CONTACTEZ</span>
+            <span class="hero-title--accent">UNIVERS</span>
+            <span>GLASS</span>
+          </h1>
+
+          <span class="hero-rule" aria-hidden="true"></span>
+
+          <p class="hero-description">
+            Téléphone, WhatsApp ou email : choisissez le canal le plus simple
+            pour nous joindre et lancer votre demande.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item feature-item--blue">
+              <span class="feature-item__icon">
+                <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7.4 4.6h2.8l1 4-1.7 1.7a14 14 0 0 0 4.9 4.9l1.7-1.7 4 1v2.8a1.4 1.4 0 0 1-1.4 1.4A15.3 15.3 0 0 1 5.9 6a1.4 1.4 0 0 1 1.5-1.4Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                  ></path>
+                </svg>
+              </span>
+
+              <span class="feature-item__copy">
+                <span>APPEL</span>
+                <span>DIRECT</span>
+              </span>
+            </div>
+
+            <div class="feature-item feature-item--red">
+              <span class="feature-item__icon">
+                <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20 11.4c0 4.4-3.7 8-8.3 8-.8 0-1.7-.1-2.4-.4L4 20.5l1.5-4.9a7.7 7.7 0 0 1-1-4.2c0-4.4 3.7-8 8.3-8S20 7 20 11.4Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  ></path>
+                  <path
+                    d="M9.6 8.9h1.4l.5 2-1 1a7 7 0 0 0 2.5 2.5l1-1 2 .5v1.4c0 .5-.4.9-.9.9a8.7 8.7 0 0 1-7.8-7.8c0-.5.4-.9.9-.9Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  ></path>
+                </svg>
+              </span>
+
+              <span class="feature-item__copy">
+                <span>WHATSAPP</span>
+                <span>RAPIDE</span>
+              </span>
+            </div>
+
+            <div class="feature-item feature-item--blue">
+              <span class="feature-item__icon">
+                <MarketingIcon name="mail" />
+              </span>
+
+              <span class="feature-item__copy">
+                <span>EMAIL</span>
+                <span>DIRECT</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="hero-button hero-button--blue" href={phoneLink}>
+              <span class="hero-button__icon">
+                <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7.4 4.6h2.8l1 4-1.7 1.7a14 14 0 0 0 4.9 4.9l1.7-1.7 4 1v2.8a1.4 1.4 0 0 1-1.4 1.4A15.3 15.3 0 0 1 5.9 6a1.4 1.4 0 0 1 1.5-1.4Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                  ></path>
+                </svg>
+              </span>
+
+              <span class="hero-button__copy">
+                <small>APPELER AU</small>
+                <strong>{phoneDisplay}</strong>
+              </span>
+            </a>
+
+            <a
+              class="hero-button hero-button--red"
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="hero-button__icon">
+                <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20 11.4c0 4.4-3.7 8-8.3 8-.8 0-1.7-.1-2.4-.4L4 20.5l1.5-4.9a7.7 7.7 0 0 1-1-4.2c0-4.4 3.7-8 8.3-8S20 7 20 11.4Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  ></path>
+                  <path
+                    d="M9.6 8.9h1.4l.5 2-1 1a7 7 0 0 0 2.5 2.5l1-1 2 .5v1.4c0 .5-.4.9-.9.9a8.7 8.7 0 0 1-7.8-7.8c0-.5.4-.9.9-.9Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  ></path>
+                </svg>
+              </span>
+
+              <span class="hero-button__copy">
+                <small>OUVRIR</small>
+                <strong>WHATSAPP</strong>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img
+            src="/fonds.png"
+            alt="Façade vitrée moderne"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-bottom__items">
+          {
+            contactTrustItems.map((item) => (
+              <div class="trust-item">
+                <span class="trust-item__icon">
+                  <MarketingIcon name={item.icon} />
+                </span>
+                <span class="trust-item__label">{item.label}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <a class="contact-panel" href="/">
+          <span class="contact-panel__icon">
+            <MarketingIcon name="mail" />
+          </span>
+
+          <span class="contact-panel__copy">
+            <strong>RETOUR À L'ACCUEIL</strong>
+            <small>Revenir à la page d'accueil</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase-section" data-animate="showcase">
+      <div class="showcase-heading">
+        <span class="section-kicker">CONTACT DIRECT</span>
+        <h2>Choisissez le canal le plus simple pour nous joindre.</h2>
+        <p>
+          Vous pouvez nous appeler, nous écrire sur WhatsApp ou nous envoyer un
+          email selon la nature de votre demande.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <span class="contact-card__icon">
+            <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7.4 4.6h2.8l1 4-1.7 1.7a14 14 0 0 0 4.9 4.9l1.7-1.7 4 1v2.8a1.4 1.4 0 0 1-1.4 1.4A15.3 15.3 0 0 1 5.9 6a1.4 1.4 0 0 1 1.5-1.4Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.9"
+              ></path>
+            </svg>
+          </span>
+          <h3>Téléphone</h3>
+          <p>Pour un échange immédiat et direct.</p>
+          <strong>{phoneDisplay}</strong>
+          <a href={phoneLink}>Appeler maintenant</a>
+        </article>
+
+        <article class="contact-card contact-card--whatsapp">
+          <span class="contact-card__icon">
+            <svg class="contact-inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 11.4c0 4.4-3.7 8-8.3 8-.8 0-1.7-.1-2.4-.4L4 20.5l1.5-4.9a7.7 7.7 0 0 1-1-4.2c0-4.4 3.7-8 8.3-8S20 7 20 11.4Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              ></path>
+              <path
+                d="M9.6 8.9h1.4l.5 2-1 1a7 7 0 0 0 2.5 2.5l1-1 2 .5v1.4c0 .5-.4.9-.9.9a8.7 8.7 0 0 1-7.8-7.8c0-.5.4-.9.9-.9Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              ></path>
+            </svg>
+          </span>
+          <h3>WhatsApp</h3>
+          <p>Pratique pour envoyer rapidement un message ou un visuel.</p>
+          <strong>{phoneDisplay}</strong>
+          <a href={whatsappLink} target="_blank" rel="noreferrer">Ouvrir WhatsApp</a>
+        </article>
+
+        <article class="contact-card">
+          <span class="contact-card__icon">
+            <MarketingIcon name="mail" />
+          </span>
+          <h3>Email</h3>
+          <p>Idéal pour une demande plus détaillée.</p>
+          <strong>{emailAddress}</strong>
+          <a href={emailLink}>Envoyer un email</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="signature-section" data-animate="signature">
+      <div class="signature-copy">
+        <span class="section-kicker">PARCOURS SIMPLE</span>
+        <h2>Trois façons claires de nous joindre selon votre besoin.</h2>
+        <p>
+          Que vous souhaitiez une réponse rapide, partager quelques détails ou
+          envoyer une demande plus complète, la prise de contact reste simple.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        {
+          contactFlow.map((item) => (
+            <article class="signature-card">
+              <span class="signature-card__step">{item.step}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/home-animations";
+  </script>
+
+  <style>
+    .contact-inline-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.35rem;
+    }
+
+    .contact-card {
+      min-height: 100%;
+      padding: 1.2rem;
+      display: grid;
+      align-content: start;
+      gap: 0.8rem;
+      border-radius: 1.4rem;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 18px 32px rgba(16, 49, 93, 0.08);
+    }
+
+    .contact-card__icon {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(35, 111, 210, 0.12), rgba(35, 111, 210, 0.18));
+      color: #165fbc;
+    }
+
+    .contact-card--whatsapp .contact-card__icon {
+      background: linear-gradient(135deg, rgba(227, 27, 35, 0.12), rgba(227, 27, 35, 0.18));
+      color: #d81b22;
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      color: #0f3a73;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: #36506f;
+      line-height: 1.65;
+    }
+
+    .contact-card strong {
+      color: #0f2f57;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.85rem;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #236fd2 0%, #155fbc 100%);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 22px rgba(16, 49, 93, 0.12);
+    }
+
+    .contact-card--whatsapp a {
+      background: linear-gradient(135deg, #ef232b 0%, #de1820 100%);
+    }
+
+    .signature-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: clamp(1rem, 2vw, 1.6rem);
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .signature-section {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,75 @@
+
+> dev
+> astro dev --host 127.0.0.1 --port 4321
+
+[2m01:01:30[22m [34m[@astrojs/node][39m Enabling sessions with filesystem storage
+[2m01:01:30[22m [34m[types][39m Generated [2m6ms[22m
+[2m01:01:31[22m [34m[content][39m Syncing content
+[33m[1m01:01:31[22m [WARN] [glob-loader][39m No files found matching "**/*.md,!**/_*/**/*.md,!**/_*.md" in directory "src\content\services"
+[33m[1m01:01:31[22m [WARN] [glob-loader][39m No files found matching "**/*.md,!**/_*/**/*.md,!**/_*.md" in directory "src\content\zones"
+[33m[1m01:01:31[22m [WARN] [glob-loader][39m No files found matching "**/*.md,!**/_*/**/*.md,!**/_*.md" in directory "src\content\faq"
+[2m01:01:31[22m [34m[content][39m Synced content
+[2m01:01:31[22m [34m[vite][39m Port 4321 is in use, trying another one...
+[2m01:01:31[22m [34m[vite][39m Port 4322 is in use, trying another one...
+
+[42m[1m astro [22m[49m [32mv5.18.1[39m [2mready in[22m 3168 [2mms[22m
+
+[2m┃[22m Local    [36mhttp://127.0.0.1:4323/[39m
+
+[2m01:01:32[22m [32mwatching for file changes...[39m
+[2m01:05:38[22m [33m[301][39m /api/config/ [2m37531ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m276ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m163ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m123ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m111ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m21ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m79ms[22m
+[2m01:05:41[22m [33m[301][39m /api/config/ [2m19ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m65ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m95ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m34ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m18ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m42ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m46ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m56ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m42ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m15ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:42[22m [33m[301][39m /api/config/ [2m38ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m50ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m119ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m13ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m16ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m12ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m43ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m15ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m14ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m68ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m40ms[22m
+[2m01:05:43[22m [33m[301][39m /api/config/ [2m22ms[22m
+[2m01:07:29[22m [33m[301][39m [33mHEAD[39m /api/config [2m194ms[22m
+[2m01:07:30[22m [33m[301][39m [33mHEAD[39m /api/config/ [2m557ms[22m
+[2m01:08:04[22m [34m[200][39m /api/config/ [2m95ms[22m
+[2m01:10:32[22m [33m[400][39m [33mPOST[39m /api/quote/ [2m6624ms[22m
+[2m01:14:21[22m [34m[200][39m [34mPOST[39m /api/quote/ [2m8688ms[22m
