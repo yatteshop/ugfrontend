@@ -4,11 +4,11 @@ import MarketingIcon from "../../components/ui/MarketingIcon.astro";
 import BrandLockup from "../../components/ui/BrandLockup.astro";
 import "../../styles/univers-glass-pages.css";
 
-const apiBaseUrl = "/api";
-const apiFallbackBaseUrl =
-  import.meta.env.PUBLIC_API_BASE_URL ??
+const API_URL =
   import.meta.env.PUBLIC_API_URL ??
   "https://universglass.pythonanywhere.com/api";
+const apiBaseUrl = API_URL;
+const apiFallbackBaseUrl = API_URL;
 
 const quoteHighlights = [
   {
@@ -449,11 +449,7 @@ const quoteTrustItems = [
       const quoteRoot = document.querySelector(".quote-page");
       if (!quoteRoot) return;
 
-      const normalizeApiBase = (value) => value?.replace(/\/$/, "") || "";
-      const apiBase = normalizeApiBase(quoteRoot.dataset.apiBase);
-      const apiFallbackBase = normalizeApiBase(quoteRoot.dataset.apiFallbackBase);
-      const apiBases = Array.from(new Set([apiBase, apiFallbackBase].filter(Boolean)));
-      let activeApiBase = apiBases[0] || "";
+      const API_URL = ${JSON.stringify(API_URL)};
       const status = document.querySelector('[data-role="status"]');
       const form = document.querySelector('[data-role="form"]');
       const submitButton = document.querySelector('[data-role="submit"]');
@@ -539,33 +535,8 @@ const quoteTrustItems = [
         return messages[0] || "Le calcul a échoué. Vérifiez les champs ou la disponibilité du backend.";
       };
 
-      const requestApi = async (path, options) => {
-        const preferredBases = activeApiBase
-          ? [activeApiBase, ...apiBases.filter((base) => base !== activeApiBase)]
-          : apiBases;
-        let lastResponse = null;
-        let lastError = null;
-
-        for (const base of preferredBases) {
-          try {
-            const response = await fetch(`${base}${path}`, options);
-            if (response.ok) {
-              activeApiBase = base;
-              return response;
-            }
-
-            lastResponse = response;
-            if (response.status !== 404 && response.status < 500) {
-              return response;
-            }
-          } catch (error) {
-            lastError = error;
-          }
-        }
-
-        if (lastResponse) return lastResponse;
-        throw lastError ?? new Error("Aucune route API disponible.");
-      };
+      const requestApi = async (path, options) =>
+        fetch(`${API_URL}${path}`, options);
 
       const renderConfig = (config) => {
         clearSelect(glassTypeSelect, "Choisir un vitrage");

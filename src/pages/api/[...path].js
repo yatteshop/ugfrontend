@@ -1,8 +1,6 @@
 export const prerender = false;
 
 const backendBaseUrl =
-  process.env.PRIVATE_API_BASE_URL ??
-  import.meta.env.PUBLIC_API_BASE_URL ??
   import.meta.env.PUBLIC_API_URL ??
   "https://universglass.pythonanywhere.com/api";
 
