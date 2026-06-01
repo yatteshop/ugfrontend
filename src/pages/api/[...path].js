@@ -3,7 +3,7 @@ export const prerender = false;
 const backendBaseUrl =
   import.meta.env.PRIVATE_API_BASE_URL ??
   import.meta.env.PUBLIC_API_BASE_URL ??
-  "http://127.0.0.1:8000/api";
+  "https://universglass.pythonanywhere.com/api";
 
 const proxyRequest = async ({ request, url }) => {
   const proxyPath = url.pathname.replace(/^\/api\/?/, "");
