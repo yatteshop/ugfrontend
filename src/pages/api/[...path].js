@@ -1,8 +1,9 @@
 export const prerender = false;
 
 const backendBaseUrl =
-  import.meta.env.PRIVATE_API_BASE_URL ??
+  process.env.PRIVATE_API_BASE_URL ??
   import.meta.env.PUBLIC_API_BASE_URL ??
+  import.meta.env.PUBLIC_API_URL ??
   "https://universglass.pythonanywhere.com/api";
 
 const proxyRequest = async ({ request, url }) => {
@@ -12,15 +13,17 @@ const proxyRequest = async ({ request, url }) => {
     : `${backendBaseUrl}/`;
   const targetUrl = new URL(`${proxyPath}${url.search}`, normalizedBase);
 
-  const headers = new Headers(request.headers);
-  headers.delete("host");
-  headers.delete("content-length");
-  headers.delete("expect");
-  headers.delete("connection");
-  headers.delete("origin");
-  headers.delete("referer");
-  headers.delete("cookie");
-  headers.delete("x-csrftoken");
+  // Only forward the headers the Django API actually needs.
+  const headers = new Headers();
+  for (const headerName of [
+    "accept",
+    "content-type",
+    "authorization",
+    "x-requested-with"
+  ]) {
+    const headerValue = request.headers.get(headerName);
+    if (headerValue) headers.set(headerName, headerValue);
+  }
 
   const response = await fetch(targetUrl, {
     method: request.method,
