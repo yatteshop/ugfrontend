@@ -4,8 +4,7 @@ import MarketingIcon from "../../components/ui/MarketingIcon.astro";
 import BrandLockup from "../../components/ui/BrandLockup.astro";
 import "../../styles/univers-glass-pages.css";
 
-const apiBaseUrl = "/api";
-const apiFallbackBaseUrl =
+const API_URL =
   import.meta.env.PUBLIC_API_URL ??
   "https://universglass.pythonanywhere.com/api";
 
@@ -106,8 +105,7 @@ const quoteTrustItems = [
   <main class="home-shell">
     <section
       class="hero-card quote-page"
-      data-api-base={apiBaseUrl}
-      data-api-fallback-base={apiFallbackBaseUrl}
+      data-api-base={API_URL}
     >
       <div class="hero-main">
         <div class="hero-copy">
@@ -448,37 +446,17 @@ const quoteTrustItems = [
       const quoteRoot = document.querySelector(".quote-page");
       if (!quoteRoot) return;
 
-      const apiBaseUrl = quoteRoot.dataset.apiBase || "/api";
-      const apiFallbackBaseUrl = quoteRoot.dataset.apiFallbackBase || "";
+      const apiBaseUrl =
+        quoteRoot.dataset.apiBase ||
+        "https://universglass.pythonanywhere.com/api";
       const buildApiUrl = (base, path) => {
         const normalizedBase = base.replace(/\/+$/, "");
         const normalizedPath = path.startsWith("/") ? path : `/${path}`;
         return `${normalizedBase}${normalizedPath}`;
       };
 
-      // Try the same-origin proxy first, then the configured remote backend.
-      const requestApi = async (path, options) => {
-        const bases = [apiBaseUrl, apiFallbackBaseUrl].filter(Boolean);
-        let lastResponse = null;
-        let lastError = null;
-
-        for (const base of bases) {
-          try {
-            const response = await fetch(buildApiUrl(base, path), options);
-            if (response.ok) return response;
-
-            lastResponse = response;
-            if (![404, 405, 500, 502, 503, 504].includes(response.status)) {
-              return response;
-            }
-          } catch (error) {
-            lastError = error;
-          }
-        }
-
-        if (lastResponse) return lastResponse;
-        throw lastError ?? new Error("Impossible de joindre l'API.");
-      };
+      const requestApi = async (path, options) =>
+        fetch(buildApiUrl(apiBaseUrl, path), options);
       const status = document.querySelector('[data-role="status"]');
       const form = document.querySelector('[data-role="form"]');
       const submitButton = document.querySelector('[data-role="submit"]');
