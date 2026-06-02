@@ -4,11 +4,10 @@ import MarketingIcon from "../../components/ui/MarketingIcon.astro";
 import BrandLockup from "../../components/ui/BrandLockup.astro";
 import "../../styles/univers-glass-pages.css";
 
-const API_URL =
+const apiBaseUrl = "/api";
+const apiFallbackBaseUrl =
   import.meta.env.PUBLIC_API_URL ??
   "https://universglass.pythonanywhere.com/api";
-const apiBaseUrl = API_URL;
-const apiFallbackBaseUrl = API_URL;
 
 const quoteHighlights = [
   {
@@ -449,7 +448,37 @@ const quoteTrustItems = [
       const quoteRoot = document.querySelector(".quote-page");
       if (!quoteRoot) return;
 
-      const API_URL = ${JSON.stringify(API_URL)};
+      const apiBaseUrl = quoteRoot.dataset.apiBase || "/api";
+      const apiFallbackBaseUrl = quoteRoot.dataset.apiFallbackBase || "";
+      const buildApiUrl = (base, path) => {
+        const normalizedBase = base.replace(/\/+$/, "");
+        const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+        return `${normalizedBase}${normalizedPath}`;
+      };
+
+      // Try the same-origin proxy first, then the configured remote backend.
+      const requestApi = async (path, options) => {
+        const bases = [apiBaseUrl, apiFallbackBaseUrl].filter(Boolean);
+        let lastResponse = null;
+        let lastError = null;
+
+        for (const base of bases) {
+          try {
+            const response = await fetch(buildApiUrl(base, path), options);
+            if (response.ok) return response;
+
+            lastResponse = response;
+            if (![404, 405, 500, 502, 503, 504].includes(response.status)) {
+              return response;
+            }
+          } catch (error) {
+            lastError = error;
+          }
+        }
+
+        if (lastResponse) return lastResponse;
+        throw lastError ?? new Error("Impossible de joindre l'API.");
+      };
       const status = document.querySelector('[data-role="status"]');
       const form = document.querySelector('[data-role="form"]');
       const submitButton = document.querySelector('[data-role="submit"]');
@@ -534,9 +563,6 @@ const quoteTrustItems = [
         const messages = flattenErrors(payload).filter(Boolean);
         return messages[0] || "Le calcul a échoué. Vérifiez les champs ou la disponibilité du backend.";
       };
-
-      const requestApi = async (path, options) =>
-        fetch(`${API_URL}${path}`, options);
 
       const renderConfig = (config) => {
         clearSelect(glassTypeSelect, "Choisir un vitrage");
